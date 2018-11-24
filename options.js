@@ -4,7 +4,7 @@
     for (let item of kButtonColors) {
       let button = document.createElement('button');
       button.style.backgroundColor = item;
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(changeButton) {
         chrome.storage.sync.set({color: item}, function() {
           console.log('color is ' + item);
         })
@@ -13,3 +13,7 @@
     }
   }
   constructOptions(kButtonColors);
+  
+  function changeButton(){
+    document.getElementById("buttontext").innerHTML = "Yay! :D";
+    }
