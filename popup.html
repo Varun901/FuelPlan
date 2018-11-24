@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script type="text/javascript" src="popup.js"></script>
+        <style>
+            select {
+                width: 100%;
+                display:block;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <select id="year" onchange="loadMakes()">
+        <option value="" disabled selected>Year</option>
+    </select>
+    <select id="make" onchange="loadModels()">
+        <option value="" disabled selected>Make</option>
+    </select>
+    <select id="model" onchange="loadTrims()">
+        <option value="" disabled selected>Model</option>
+    </select>
+    <select id="options" onChange="getMileage()">
+        <option value="" disabled selected>Options</option>
+    </select>
+    <div id="mileage">
+    
+    </div>
+</html>
