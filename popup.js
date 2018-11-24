@@ -12,6 +12,25 @@ $(document).ready(function() {
     $("#options").change(getMileage);
 });
 
+function converttoCAD(getFuelPrice) {
+    FuelPrice_CAD = getFuelPrice * 1.32
+return FuelPrice_CAD
+}
+
+function convertoLiters(FuelPrice_CAD)
+    FuelPrice_CADL = FuelPrice_CAD / 3.785
+return FuelPrice_CADL
+
+function converttoKML(getMileage) {
+    Mileage_KML = getMileage/2.352
+return Mileage_KML
+}
+
+function getTotalPrice(FuelPrice_CADL, Distance,Mileage_KML) {
+    TotalPrice = (Distance / Mileage_KML)*FuelPrice_CADL
+return TotalPrice
+}
+
 function getFuelPrice(fuelType) {
 	url = "https://fueleconomy.gov/ws/rest/fuelprices"
 	$.ajax({

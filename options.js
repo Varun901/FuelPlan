@@ -13,7 +13,3 @@
     }
   }
   constructOptions(kButtonColors);
-  
-  function changeButton(){
-    document.getElementById("buttontext").innerHTML = "Yay! :D";
-    }

@@ -1,6 +1,7 @@
-var greeting = "hola, ";
-var button = document.getElementById("mybutton");
-button.person_name = "Roberto";
-button.addEventListener("click", function() {
-  alert(greeting + button.person_name + ".");
-}, false);
+var mapLabel = new MapLabel({
+    text: 'Test',
+    position: new google.maps.LatLng(50,50),
+    map: map,
+    fontSize: 20,
+    align: 'right'
+  });
