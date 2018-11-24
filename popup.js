@@ -12,23 +12,16 @@ $(document).ready(function() {
     $("#options").change(getMileage);
 });
 
-function converttoCAD(getFuelPrice) {
-    FuelPrice_CAD = getFuelPrice * 1.32
-return FuelPrice_CAD
+function converttoCADL(FuelPrice) {
+    return (FuelPrice * 1.32) / 3.785
 }
 
-function convertoLiters(FuelPrice_CAD)
-    FuelPrice_CADL = FuelPrice_CAD / 3.785
-return FuelPrice_CADL
-
-function converttoKML(getMileage) {
-    Mileage_KML = getMileage/2.352
-return Mileage_KML
+function converttoKML(Mpg) {
+    return Mpg/2.352
 }
 
-function getTotalPrice(FuelPrice_CADL, Distance,Mileage_KML) {
-    TotalPrice = (Distance / Mileage_KML)*FuelPrice_CADL
-return TotalPrice
+function getTotalPrice(FuelPrice, Distance,KMpL) {
+    return(Distance / KMpL)*FuelPrice
 }
 
 function getFuelPrice(fuelType) {
@@ -37,7 +30,7 @@ function getFuelPrice(fuelType) {
         url: url,
         dataType: 'json',
         success: function(data) {
-            $("#fuelPrice").val(data[fuelType.toLowerCase()]);
+            $("#fuelPrice").val(converttoCADL(data[fuelType.toLowerCase()]).toFixed(2));
         },
         type: 'GET'
 	});
@@ -158,7 +151,7 @@ function getMileage() {
         url: url,
         dataType: 'json',
         success: function(data) {
-            $("#mileage").html("Gas Mileage: "+data.comb08+"mpg")
+            $("#mileage").html("Gas Mileage: "+ converttoKML(data.comb08).toFixed() +" KmpL")
             getFuelPrice(data.fuelType)
         },
         type: 'GET'
