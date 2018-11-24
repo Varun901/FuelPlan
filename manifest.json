@@ -1,0 +1,10 @@
+ {
+    "name": "Trip Cost Estimator",
+    "version": "1.0",
+    "description": "Estimate the cost of your trip through Google Maps and a chrome extension",
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "manifest_version": 2
+  }
