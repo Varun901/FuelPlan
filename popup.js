@@ -20,22 +20,6 @@ $.ajaxSetup({
       return Mpg/2.352
   }
   
-  function getTotalPrice(FuelPrice, Distance,KMpL) {
-      return(Distance / KMpL)*FuelPrice
-  }
-  
-  function getFuelPrice(fuelType) {
-      url = "https://fueleconomy.gov/ws/rest/fuelprices"
-      $.ajax({
-          url: url,
-          dataType: 'json',
-          success: function(data) {
-              $("#fuelPrice").val(converttoCADL(data[fuelType.toLowerCase()]).toFixed(2));
-          },
-          type: 'GET'
-      });
-  }
-  
   function loadYears() {
       let dropdown = $('#year');
       url = "https://fueleconomy.gov/ws/rest/vehicle/menu/year"
@@ -142,7 +126,23 @@ $.ajaxSetup({
       type: 'GET'
       });
   }
-  
+    
+  function getFuelPrice(fuelType) {
+      url = "https://fueleconomy.gov/ws/rest/fuelprices"
+      $.ajax({
+          url: url,
+          dataType: 'json',
+          success: function(data) {
+              var fuelPrice = converttoCADL(data[fuelType.toLowerCase()]).toFixed(2);
+              $("#fuelPrice").val(fuelPrice);
+              chrome.storage.local.set({gasPrice: fuelPrice}, function() {
+                console.log('Value is set to ' + fuelPrice);
+              });
+          },
+          type: 'GET'
+      });
+  }
+
   function getMileage() {
       let dropdown = $('#options');
       let id = $("#options").val();
@@ -151,8 +151,12 @@ $.ajaxSetup({
           url: url,
           dataType: 'json',
           success: function(data) {
-              $("#mileage").html("Gas Mileage: "+ converttoKML(data.comb08).toFixed() +" KmpL")
-              getFuelPrice(data.fuelType)
+              let mileage = converttoKML(data.comb08).toFixed();
+              $("#mileage").html("Fuel Efficiency: "+ mileage +" KmpL")
+              getFuelPrice(data.fuelType);
+              chrome.storage.local.set({gasMileage: mileage}, function() {
+                console.log('Value is set to ' + mileage);
+              });
           },
           type: 'GET'
       });
