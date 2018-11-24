@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Estimate the cost of your trip through Google Maps and a chrome extension",
     "permissions": ["activeTab", "declarativeContent", "storage"],
-    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+    "content_security_policy": "script-src 'nonce-2726c7f26c''self' https://ajax.googleapis.com; object-src 'self'",
     "background": {
       "scripts": ["background.js"],
       "persistent": false

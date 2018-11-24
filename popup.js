@@ -71,6 +71,7 @@ function loadModels() {
 	let dropdown = $('#model');
     dropdown.html('<option value="" disabled selected>Model</option>');
     $("#options").html('<option value="" disabled selected>Options</option>');
+    $("#model").html('<option value="" disabled selected>Model</option>');
     let year = $("#year").val();
     let make = $("#make").val();
 	url = "https://fueleconomy.gov/ws/rest/vehicle/menu/modelNoPhev?year="+year+"&make="+make
@@ -97,6 +98,7 @@ function loadModels() {
 function loadTrims() {
 	let dropdown = $('#options');
     dropdown.html('<option value="" disabled selected>Options</option>');
+    $("#options").html('<option value="" disabled selected>Options</option>');
     let year = $("#year").val();
     let make = $("#make").val();
     let model = $("#model").val();
