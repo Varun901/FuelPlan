@@ -18,7 +18,7 @@
       },
       "content_scripts": [
         {
-          "matches": [" * km"],
+          "matches": ["*://*/*"],
           "js": ["contentScript.js"]
         }
       ],

@@ -4,6 +4,9 @@
         <script src="jquery.min.js"></script>
         <script type="text/javascript" src="popup.js"></script>
         <style>
+            html, body {
+                width: 200px;
+            }
             select {
                 width: 100%;
                 display:block;
@@ -23,7 +26,8 @@
     <select id="options" onChange="getMileage()">
         <option value="" disabled selected>Options</option>
     </select>
+    Fuel Price: <input id="fuelPrice"/>
     <div id="mileage">
-
+    
     </div>
 </html>
