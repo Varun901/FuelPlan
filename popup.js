@@ -4,6 +4,14 @@ $.ajaxSetup({
   }
 });
 
+$(document).ready(function() {
+    loadYears();
+    $("#year").change(loadMakes);
+    $("#make").change(loadModels);
+    $("#model").change(loadTrims);
+    $("#options").change(getMileage);
+});
+
 function getFuelPrice(fuelType) {
 	url = "https://fueleconomy.gov/ws/rest/fuelprices"
 	$.ajax({
@@ -137,6 +145,3 @@ function getMileage() {
         type: 'GET'
 	});
 }
-
-
-loadYears();
