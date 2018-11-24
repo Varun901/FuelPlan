@@ -1,12 +1,28 @@
 $(document).ready(function() {
   var fuelPrice = "";
   var mileage = "";
+  
   chrome.storage.local.get(['gasPrice'], function(result){
     fuelPrice = result.gasPrice;
   });
   chrome.storage.local.get(['gasMileage'], function(result){
     mileage = result.gasMileage;
   });
+
+  var oldFuelPrice = "";
+  var oldMileage = "";
+  setInterval(function() {
+    chrome.storage.local.get(['gasPrice'], function(result){
+      fuelPrice = result.gasPrice;
+      if (oldFuelPrice != fuelPrice) calculateTripCost();
+      oldFuelPrice = fuelPrice;
+    });
+    chrome.storage.local.get(['gasMileage'], function(result){
+      mileage = result.gasMileage;
+      if (oldMileage != mileage) calculateTripCost();
+      oldMileage = mileage;
+    });
+  }, 500);
 
   var lastUrl = "";
   setInterval(function() {
