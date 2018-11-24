@@ -17,7 +17,7 @@ function getFuelPrice(fuelType) {
 }
 
 function loadYears() {
-    let dropdown = $('#year');	
+    let dropdown = $('#year');
     url = "https://fueleconomy.gov/ws/rest/vehicle/menu/year"
     $.ajax({
     url: url,
@@ -40,7 +40,7 @@ function loadYears() {
 }
 
 function loadMakes() {
-	let dropdown = $('#make');	
+	let dropdown = $('#make');
     dropdown.html('<option value="" disabled selected>Make</option>');
     $("#options").html('<option value="" disabled selected>Options</option>');
     $("#make").html('<option value="" disabled selected>Make</option>');
@@ -68,7 +68,7 @@ function loadMakes() {
 }
 
 function loadModels() {
-	let dropdown = $('#model');	
+	let dropdown = $('#model');
     dropdown.html('<option value="" disabled selected>Model</option>');
     $("#options").html('<option value="" disabled selected>Options</option>');
     let year = $("#year").val();
@@ -95,7 +95,7 @@ function loadModels() {
 }
 
 function loadTrims() {
-	let dropdown = $('#options');	
+	let dropdown = $('#options');
     dropdown.html('<option value="" disabled selected>Options</option>');
     let year = $("#year").val();
     let make = $("#make").val();
@@ -122,7 +122,7 @@ function loadTrims() {
 }
 
 function getMileage() {
-	let dropdown = $('#options');	
+	let dropdown = $('#options');
     let id = $("#options").val();
     url = "https://fueleconomy.gov/ws/rest/v2/"+id
     $.ajax({

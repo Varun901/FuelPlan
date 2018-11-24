@@ -2,9 +2,34 @@
     "name": "Trip Cost Estimator",
     "version": "1.0",
     "description": "Estimate the cost of your trip through Google Maps and a chrome extension",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
-    "manifest_version": 2
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "get_started16.png",
+            "32": "get_started32.png",
+            "48": "get_started48.png",
+            "128": "get_started128.png"
+          }
+      },
+      "content_scripts": [
+        {
+          "matches": [" * km"],
+          "js": ["contentScript.js"]
+        }
+      ],
+
+      "icons": {
+        "16": "get_started16.png",
+        "32": "get_started32.png",
+        "48": "get_started48.png",
+        "128": "get_started128.png"
+      },
+      "options_page": "options.html",
+    "manifest_version": 2   
+    
   }
