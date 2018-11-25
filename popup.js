@@ -217,7 +217,7 @@ $.ajaxSetup({
               chrome.storage.local.set({gasMileage: mileage}, function() {});
               if(mileage < 9) {
                 $("#ratingText").html("Your vehicle has good fuel economy.");
-                $(".rating").css("color","#0b6300");
+                $(".rating").css("color","#2e9b00");
               } else if(mileage < 14) {
                 $("#ratingText").html("Your vehicle has okay fuel economy.");
                 $(".rating").css("color","#c69500");
