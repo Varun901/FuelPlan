@@ -19,7 +19,7 @@
             .line {
                 margin-top: 18px;
                 margin-bottom: 15px;
-                padding: 2px;
+                padding: 1px;
                 background-color: lightgrey;
                 border-radius: 10px;
             }
@@ -60,8 +60,24 @@
                 vertical-align: middle;
                 margin-right: 10px;
             }
+            .logo {
+                color: #3f3f3f;
+                font-size: 35px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .logoimg {
+                max-width: 50px;
+                vertical-align: middle;
+                margin-right: 0px;
+            }
         </style>
     </head>
+    <div class="logo">
+        <img src="pump.png" class="logoimg"/>
+        FuelPlan
+    </div>
+    <div class="line"></div>
     <div class="selecttext">Select your vehicle</div>
     <select id="year">
         <option value="" disabled selected>Year</option>
