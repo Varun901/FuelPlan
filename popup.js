@@ -219,12 +219,12 @@ $.ajaxSetup({
                 $("#ratingText").html("Your vehicle has good fuel economy.");
                 $(".rating").css("color","#2e9b00");
               } else if(mileage < 14) {
-                $("#ratingText").html("Your vehicle has okay fuel economy.");
-                $(".rating").css("color","#c69500");
+                $("#ratingText").html("Your vehicle has average fuel economy.");
+                $(".rating").css("color","grey");
               }
               else {
                 $("#ratingText").html("Your vehicle has poor fuel economy.");
-                $(".rating").css("color","#c90000");
+                $(".rating").css("color","#db9a18");
               }
               chrome.storage.local.set({year: $("#year").val()}, function() {});
               chrome.storage.local.set({make: $("#make").val()}, function() {});

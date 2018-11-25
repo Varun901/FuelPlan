@@ -15,12 +15,13 @@
                 padding-bottom: 5px;
                 display:block;
                 margin-bottom: 5px;
+                border: 1px solid rgba(0,0,0,0.1);
             }
             .line {
                 margin-top: 18px;
                 margin-bottom: 15px;
                 padding: 1.3px;
-                background-color: lightgrey;
+                background-color: rgba(0,0,0,0.1);
                 border-radius: 10px;
             }
             .selecttext {
@@ -33,15 +34,17 @@
                 text-align: right;
                 display: block;
                 font-weight: bold;
-                font-size: 15px;
+                font-size: 13.5px;
+                color: #464646;
             }
             .box {
                 display: block;
                 height: 50px;
                 margin-bottom: 15px;
+                color:#303030;
             }
             .rating {
-                text-align: center;
+                text-align: left;
                 width: 100%;
                 margin-top: 5px;
             }
@@ -52,6 +55,7 @@
             .maps {
                 color: grey;
                 padding: 5px;
+                padding-bottom: 0px;
                 text-align: left;
             }
             .mapsimg {
@@ -59,6 +63,7 @@
                 float:left;
                 vertical-align: middle;
                 margin-right: 10px;
+                margin-top: -3px;
             }
             .logo {
                 color: #3f3f3f;
@@ -95,7 +100,7 @@
     <div class="box">
         <td>
             <div style="float:left;width:50%;">Gas Price ($): </div>
-            <div style="float:right;width:50%;"><input id="fuelPrice" type="number" class="priceInput"/></div>
+            <div style="float:right;width:50%;"><input id="fuelPrice" type="text" class="priceInput"/></div>
         </td><br><br>
         <td>
             <div style="float:left;width:50%;">Avg. Fuel Economy: </div>
