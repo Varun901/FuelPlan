@@ -4,18 +4,65 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="popup.js"></script>
         <style>
-            html, body {
+            body {
                 width: 250px;
+                padding: 10px;
+                margin: 15px;
             }
             select {
-                width: 90%;
+                width: 100%;
                 padding-top: 5px;
                 padding-bottom: 5px;
                 display:block;
                 margin-bottom: 5px;
             }
+            .line {
+                margin-top: 18px;
+                margin-bottom: 15px;
+                padding: 2px;
+                background-color: lightgrey;
+                border-radius: 10px;
+            }
+            .selecttext {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: grey;
+                font-size: 15px;
+            }
+            #mileage {
+                text-align: right;
+                display: block;
+                font-weight: bold;
+                font-size: 15px;
+            }
+            .box {
+                display: block;
+                height: 50px;
+                margin-bottom: 15px;
+            }
+            .rating {
+                text-align: center;
+                width: 100%;
+                margin-top: 5px;
+            }
+            .priceInput {
+                width: 50%;
+                float:right;
+            }
+            .maps {
+                color: grey;
+                padding: 5px;
+                text-align: left;
+            }
+            .mapsimg {
+                max-width: 40px;
+                float:left;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
         </style>
     </head>
+    <div class="selecttext">Select your vehicle</div>
     <select id="year">
         <option value="" disabled selected>Year</option>
     </select>
@@ -27,8 +74,23 @@
     </select>
     <select id="options">
         <option value="" disabled selected>Trim</option>
-    </select>
-    Fuel Price:<input id="fuelPrice"/>
-    <div id="mileage">
-
+    </select><br>
+    <div class="box">
+        <td>
+            <div style="float:left;width:50%;">Gas Price ($): </div>
+            <div style="float:right;width:50%;"><input id="fuelPrice" type="number" class="priceInput"/></div>
+        </td><br><br>
+        <td>
+            <div style="float:left;width:50%;">Fuel Efficiency: </div>
+            <div style="float:right;width:50%;"><span id="mileage"></span></div>
+        </td>
+    </div>
+    <div class="rating">
+        <div id="ratingText"></div>
+    </div>
+    <div class="line"></div>
+    <div class="maps">
+        <img src="mapsicon.png" class="mapsimg"/>
+        Search for directions on Google Maps to see trip cost estimates.
+    </div>
 </html>

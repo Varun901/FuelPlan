@@ -40,7 +40,7 @@ $.ajaxSetup({
   }
   
   function converttoKML(Mpg) {
-      return Mpg/2.352
+      return 235.215/Mpg;
   }
   
   function loadYears(autoLoad=false) {
@@ -212,11 +212,20 @@ $.ajaxSetup({
           dataType: 'json',
           success: function(data) {
               let mileage = converttoKML(data.comb08).toFixed();
-              $("#mileage").html("Fuel Efficiency: "+ mileage +" KmpL")
+              $("#mileage").html(mileage +" L/100km")
               getFuelPrice(data.fuelType);
-              chrome.storage.local.set({gasMileage: mileage}, function() {
-                console.log('Value is set to ' + mileage);
-              });
+              chrome.storage.local.set({gasMileage: mileage}, function() {});
+              if(mileage < 9) {
+                $("#ratingText").html("Your vehicle has good fuel efficiency.");
+                $(".rating").css("color","darkgreen");
+              } else if(mileage < 14) {
+                $("#ratingText").html("Your vehicle has average fuel efficiency.");
+                $(".rating").css("color","brown");
+              }
+              else {
+                $("#ratingText").html("Your vehicle has poor fuel efficiency.");
+                $(".rating").css("color","#c90000");
+              }
               chrome.storage.local.set({year: $("#year").val()}, function() {});
               chrome.storage.local.set({make: $("#make").val()}, function() {});
               chrome.storage.local.set({model: $("#model").val()}, function() {});
