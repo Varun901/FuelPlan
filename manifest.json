@@ -31,7 +31,7 @@
         "128": "get_started128.png"
       },
       "options_page": "options.html",
-
+    "web_accessible_resources": ["get_started16.png"],
     "manifest_version": 2   
     
   }

@@ -216,14 +216,14 @@ $.ajaxSetup({
               getFuelPrice(data.fuelType);
               chrome.storage.local.set({gasMileage: mileage}, function() {});
               if(mileage < 9) {
-                $("#ratingText").html("Your vehicle has good fuel efficiency.");
-                $(".rating").css("color","darkgreen");
+                $("#ratingText").html("Your vehicle has good fuel economy.");
+                $(".rating").css("color","#0b6300");
               } else if(mileage < 14) {
-                $("#ratingText").html("Your vehicle has average fuel efficiency.");
-                $(".rating").css("color","brown");
+                $("#ratingText").html("Your vehicle has okay fuel economy.");
+                $(".rating").css("color","#c69500");
               }
               else {
-                $("#ratingText").html("Your vehicle has poor fuel efficiency.");
+                $("#ratingText").html("Your vehicle has poor fuel economy.");
                 $(".rating").css("color","#c90000");
               }
               chrome.storage.local.set({year: $("#year").val()}, function() {});

@@ -32,7 +32,7 @@ $(document).ready(function() {
   }, 100);
 
   function getTotalPrice(fp,d,e) {
-    return ((parseFloat(d) / parseFloat(e))*parseFloat(fp)).toFixed(2);
+    return ((parseFloat(e)*parseFloat(d) / 100)*parseFloat(fp)).toFixed(2);
   }
   
   function calculateTripCost() {
@@ -41,7 +41,8 @@ $(document).ready(function() {
         distance = $(obj).find("div").html();
         distance = distance.slice(0,-3);
         $(".tripCost"+i).remove();
-        $('<div class="tripCost'+i+'"><b>$'+getTotalPrice(fuelPrice,distance.replace(/,/g, ''),mileage)+'</b></div>').appendTo(obj);
+        iconsrc = chrome.extension.getURL("get_started16.png");
+        $('<div style="margin-top: 10px;"class="tripCost'+i+'"><img style="max-width: 15px;margin-right:3px;vertical-align:middle;margin-bottom:4px;" src="'+iconsrc+'"/><b>$'+getTotalPrice(fuelPrice,distance.replace(/,/g, ''),mileage)+'</b></div>').appendTo(obj);
       });
     }
   }
