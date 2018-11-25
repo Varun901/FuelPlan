@@ -41,7 +41,7 @@ $(document).ready(function() {
         distance = $(obj).find("div").html();
         distance = distance.slice(0,-3);
         $(".tripCost"+i).remove();
-        iconsrc = chrome.extension.getURL("get_started16.png");
+        iconsrc = chrome.extension.getURL("icon16.png");
         $('<div style="margin-top: 10px;"class="tripCost'+i+'"><img style="max-width: 15px;margin-right:3px;vertical-align:middle;margin-bottom:4px;" src="'+iconsrc+'"/><b>$'+getTotalPrice(fuelPrice,distance.replace(/,/g, ''),mileage)+'</b></div>').appendTo(obj);
       });
     }
