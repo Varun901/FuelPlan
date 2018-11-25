@@ -1,5 +1,5 @@
  {
-    "name": "Trip Cost Estimator",
+    "name": "FuelPlan",
     "version": "1.0",
     "description": "Estimate the cost of your trip through Google Maps and a chrome extension",
     "permissions": ["activeTab", "declarativeContent", "storage"],
