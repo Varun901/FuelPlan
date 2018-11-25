@@ -15,6 +15,9 @@ $.ajaxSetup({
         chrome.storage.local.set({gasPrice: $("#fuelPrice").val()}, function() {
             console.log('Value is set to ' + $("#fuelPrice").val());
         });
+        chrome.storage.local.set({userSetPrice: false}, function() {
+            console.log('Value is set to ' + false);
+        });
       });
       chrome.storage.local.get(['gasPrice'], function(result){
         if(result.gasPrice != undefined) $("#fuelPrice").val(result.gasPrice);
@@ -190,11 +193,13 @@ $.ajaxSetup({
           success: function(data) {
               if(fuelType == 'Electricity') fuelType = 'electric';
               var fuelPrice = converttoCADL(data[fuelType.toLowerCase()]).toFixed(2);
-              chrome.storage.local.get(['gasPrice'], function(result){
-                if(result.gasPrice == undefined) {
-                    $("#fuelPrice").val(fuelPrice);
-                    chrome.storage.local.set({gasPrice: fuelPrice}, function() {
-                        console.log('Value is set to ' + fuelPrice);
+              chrome.storage.local.get(['userSetPrice'], function(result){
+                if(result.userSetPrice != true) {
+                    chrome.storage.local.get(['gasPrice'], function(result){
+                        $("#fuelPrice").val(fuelPrice);
+                        chrome.storage.local.set({gasPrice: fuelPrice}, function() {
+                            console.log('Value is set to ' + fuelPrice);
+                        });
                     });
                 }
               });
